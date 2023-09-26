@@ -1,5 +1,6 @@
 """This module solves pascal triangle using nested loops"""
 
+
 def pascal_triangle(n):
     """Pascal Triangle"""
     triangle = []
@@ -12,7 +13,7 @@ def pascal_triangle(n):
                 if y == 0 or y == x:
                     currentRow.append(1)
                 else:
-                    prevRow = triangle[x - 1] 
-                    currentRow.append(prevRow[y] + prevRow[y - 1]) 
+                    prevRow = triangle[x - 1]
+                    currentRow.append(prevRow[y] + prevRow[y - 1])
             triangle.append(currentRow)
         return triangle
