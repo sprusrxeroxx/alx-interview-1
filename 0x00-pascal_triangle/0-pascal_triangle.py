@@ -1,11 +1,12 @@
+#!/usr/bin/python3
 """This module solves pascal triangle using nested loops"""
 
 
 def pascal_triangle(n):
-    """Pascal Triangle"""
+    """Pascal Triangle using loop"""
     triangle = []
     if n <= 0:
-        return [[]]
+        return []
     else:
         for x in range(n):
             currentRow = []
@@ -16,4 +17,4 @@ def pascal_triangle(n):
                     prevRow = triangle[x - 1]
                     currentRow.append(prevRow[y] + prevRow[y - 1])
             triangle.append(currentRow)
-        return triangle
+    return triangle
