@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module contains solution to lockboxes trivial question"""
 
+
 def canUnlockAll(boxes):
     """A function thatdetermines if all the boxes can be opened."""
     boxLen = len(boxes)
