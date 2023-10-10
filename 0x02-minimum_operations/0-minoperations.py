@@ -17,17 +17,20 @@ def minOperations(n: int) -> int:
     alphabet 'H'"""
     if n <= 0:
         return 0
+    #  Assume the file contain 1 alphabet (H)
     fileText = 1
+    #  Assume nothing has been copied to the clipboard yet
     copyText = 0
-    minOperation = 0
+    #  No operation has been done yet
+    countOperation = 0
 
     while fileText < n:
-        #  Copy All action 1
+        #  Copy All when the length of text is divisible by n
         if n % fileText == 0:
             copyText = fileText
-            minOperation += 1
+            countOperation += 1
 
-        #  Paste action 2
+        #  Paste at all time. Action 2
         fileText += copyText
-        minOperation += 1
-    return minOperation
+        countOperation += 1
+    return countOperation
