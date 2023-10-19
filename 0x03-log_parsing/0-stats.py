@@ -51,6 +51,7 @@ try:
                 responseDic[key] += 1
         except Exception:
             pass
+    print_logs(size, responseDic)
 
 except KeyboardInterrupt:
     """Print when ctrl-c is pressed"""
