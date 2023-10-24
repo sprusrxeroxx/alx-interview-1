@@ -10,7 +10,7 @@ def validUTF8(data: List[int]) -> bool:
         return False
 
     first_byte = bin(data[0])[2:]
-    """If only one element in a list"""
+    """If there is only one element in a list"""
     if len(data) == 1:
         if len(first_byte) <= 8:
             if any(first_byte.startswith(i) for i in binary_sequence):
