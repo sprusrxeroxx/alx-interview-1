@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""This module contains function that checks
+if characters are utf-8 encoding or not"""
 from typing import List
 
 
