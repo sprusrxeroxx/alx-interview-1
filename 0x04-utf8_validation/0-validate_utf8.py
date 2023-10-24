@@ -5,27 +5,30 @@ from typing import List
 
 
 def validUTF8(data: List[int]) -> bool:
-    """Determine if a given datda set represents a valid UTF-8 encoding"""
-    binary_sequence = ['10', '110', '1110', '11110']
-
-    if not data or any(not isinstance(int, x) for x in data):
+    if not data:
         return False
 
-    first_byte = bin(data[0])[2:]
-    """If there is only one element in a list"""
-    if len(data) == 1:
-        if len(first_byte) <= 8:
-            if any(first_byte.startswith(i) for i in binary_sequence):
-                return True
-        return False
-
-    """Convert list emements to binary and check their length"""
-    for i in data:
-        if len(bin(i)[2:]) > 8:
+    for num in data:
+        if not isinstance(int, num) or num < 0:
             return False
-        if any(bin(i)[2:].startswith(j) for j in binary_sequence):
+
+        # get the 8 least significant bits
+        num = num & 0xFF
+
+        # if num is 1-byte (8-bits)
+        if num <= 0x7F:
             continue
-        else:
-            return False
+        # if num is 2-bytes (16-bits)
+        elif num <= 0x7FF:
+            if not (0b11000000 <= num <= 0b11011111):
+                return False
+        # if num is 3-bytes(24-bits)
+        elif num <= 0xFFFF:
+            if not (0b11100000 <= num <= 0b11101111):
+                return False
+        # if num is 4-bytes (32-bits)
+        elif num <= 0x10FFFF:
+            if not (0b11110000 <= num <= 0b11110100):
+                return False
 
     return True
