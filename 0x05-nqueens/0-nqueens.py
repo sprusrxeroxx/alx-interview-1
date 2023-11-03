@@ -15,7 +15,7 @@ pos = None
 """
 
 
-def get_input() -> int:
+def get_input():
     """Retrieves and validates this program's argument.
 
     Returns:
@@ -37,7 +37,7 @@ def get_input() -> int:
     return n
 
 
-def is_attacking(pos0: Sequence, pos1: Sequence) -> bool:
+def is_attacking(pos0, pos1):
     """Checks if the positions of two queens are in an attacking mode.
 
     Args:
@@ -52,7 +52,7 @@ def is_attacking(pos0: Sequence, pos1: Sequence) -> bool:
     return abs(pos0[0] - pos1[0]) == abs(pos0[1] - pos1[1])
 
 
-def group_exists(group: List[int]) -> bool:
+def group_exists(group):
     """Checks if a group exists in the list of solutions.
 
     Args:
@@ -73,7 +73,7 @@ def group_exists(group: List[int]) -> bool:
     return False
 
 
-def build_solution(row: int, group: List[List[int]]) -> None:
+def build_solution(row, group):
     """Builds a solution for the n queens problem.
 
     Args:
