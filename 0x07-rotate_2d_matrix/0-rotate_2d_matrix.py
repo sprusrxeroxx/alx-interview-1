@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 """This modlue contains function the rotate
 2D matrix by 90 degrees"""
